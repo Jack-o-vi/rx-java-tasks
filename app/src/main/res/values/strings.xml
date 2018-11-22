@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RxJavaTutorialApp</string>
+    <string name="press">Press</string>
+    <string name="plot">Plot</string>
+</resources>
