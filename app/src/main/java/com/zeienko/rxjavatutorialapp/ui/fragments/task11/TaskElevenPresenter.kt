@@ -2,13 +2,10 @@ package com.zeienko.rxjavatutorialapp.ui.fragments.task11
 
 import android.util.Log
 import com.zeienko.rxjavatutorialapp.data.net.manager.NetworkManager
-import com.zeienko.rxjavatutorialapp.data.net.models.story.NewsBean
 import com.zeienko.rxjavatutorialapp.data.net.models.user.TaskElevenData
-import com.zeienko.rxjavatutorialapp.data.net.models.user.UserBean
-import io.reactivex.Observer
+import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.rxkotlin.zipWith
 import io.reactivex.schedulers.Schedulers
 
 class TaskElevenPresenter : TaskElevenContract.TaskElevenPresenter {
@@ -24,32 +21,22 @@ class TaskElevenPresenter : TaskElevenContract.TaskElevenPresenter {
      */
     private fun taskEleven() {
         NetworkManager.getAlgoliaApi().getStories(0)
-            .toObservable()
-            .publish { published ->
-                published.flatMapSingle { NetworkManager.getAlgoliaApi().getUsers(it.hits!![3].author) }
-                    .zipWith(published) { t1: UserBean, t2: NewsBean ->
-                        TaskElevenData(
-                            t1.username!!,
-                            t1.karma!!.toLong(),
-                            t2.hits!![3].title!!
-                        )
-                    }
+            .flatMap { bean ->
+                NetworkManager.getAlgoliaApi().getUsers(bean.hits!![3].author)
+                    .map { TaskElevenData(it.username!!, it.karma!!, bean.hits[3].title!!) }
             }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : Observer<TaskElevenData> {
-                override fun onComplete() {
+            .subscribe(object : SingleObserver<TaskElevenData> {
+                override fun onSuccess(t: TaskElevenData) {
+                    Log.e("duck", t.toString())
                 }
 
                 override fun onSubscribe(d: Disposable) {
                 }
 
-                override fun onNext(t: TaskElevenData) {
-                    Log.e("11TAG", t.toString())
-                }
-
                 override fun onError(e: Throwable) {
-                    Log.e("11TAG", e.message)
+                    Log.e("duck", e.message)
                 }
             })
     }
