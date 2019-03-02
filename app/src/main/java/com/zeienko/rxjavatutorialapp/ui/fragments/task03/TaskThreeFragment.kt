@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.chisw.rxjavakasilovtasks.ui.presenter.task03.TaskThreePresenter
 import com.zeienko.rxjavatutorialapp.R
 import com.zeienko.rxjavatutorialapp.ui.fragments.AbstractTaskFragment
 import kotlinx.android.synthetic.main.task1_fragment.*

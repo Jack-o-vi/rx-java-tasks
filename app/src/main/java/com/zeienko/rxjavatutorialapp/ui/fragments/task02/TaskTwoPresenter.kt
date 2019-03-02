@@ -29,7 +29,13 @@ class TaskTwoPresenter :
         taskTwo()
     }
 
-    fun taskTwo() {
+    /*
+    Task 2
+    1. Get list of stories from page 0
+    2. For all stories load author’s info
+    3. Print only authors with karma greater than 3000 as a single list
+     */
+    private fun taskTwo() {
         view?.showProgressBar()
         NetworkManager.getAlgoliaApi().getStories(0)
             .subscribeOn(Schedulers.io())

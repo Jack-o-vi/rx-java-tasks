@@ -10,11 +10,11 @@ class TaskTenPresenter : TaskTenContract.TaskTenPresenter {
 
     /*
     Task 10
-Choose​ ​ the most suitable Subject for the next task
-1. Create Subject<Int>
-2. Post values 1,2,3
-3. Subscribe to it
-4. Post values 4, 5, 5, 6. In the cmd “3,4,5,6” should be printed
+        Choose​ ​ the most suitable Subject for the next task
+        1. Create Subject<Int>
+        2. Post values 1,2,3
+        3. Subscribe to it
+        4. Post values 4, 5, 5, 6. In the cmd “3,4,5,6” should be printed
      */
     private fun taskTen() {
         val subj = BehaviorSubject.create<Int>()

@@ -19,9 +19,9 @@ class TaskNinePresenter : TaskNineContract.TaskNinePresenter {
 
     /*
     1. Create an observable that emits values from 0 to 10 every second
-2. Prints “Subscribed” when it is subscribed and prints values in onNext()
-3. In onError it prints an error message
-4. When the value 7 is emitted it should throw Exception(“Your error message”)
+    2. Prints “Subscribed” when it is subscribed and prints values in onNext()
+    3. In onError it prints an error message
+    4. When the value 7 is emitted it should throw Exception(“Your error message”)
      */
     private fun taskNine() {
         Observable.intervalRange(0, 10, 0, 1, TimeUnit.SECONDS)

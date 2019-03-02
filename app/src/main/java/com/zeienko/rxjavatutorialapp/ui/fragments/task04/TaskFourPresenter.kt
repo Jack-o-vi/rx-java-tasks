@@ -34,6 +34,11 @@ class TaskFourPresenter : TaskFourContract.TaskFourPresenter {
         }
     }
 
+    /*
+    Task 4
+Create a maybe source, that emits “Bang!” string or completes without
+emitting. Use randomizer to decide what to emit.
+     */
     private fun taskFour() {
         emmitBangOrNothing().subscribe(object : MaybeObserver<String> {
             override fun onSuccess(t: String) {

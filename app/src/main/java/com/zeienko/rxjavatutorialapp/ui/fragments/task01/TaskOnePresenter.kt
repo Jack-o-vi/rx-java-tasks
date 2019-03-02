@@ -28,7 +28,12 @@ class TaskOnePresenter
         taskOne()
     }
 
-    fun taskOne() {
+    /**
+    Task 1
+    1. Load stories from the 1 and 2 pages
+    2. Print a single list of titles from two pages
+     */
+    private fun taskOne() {
         view?.showProgressBar()
         val args = arrayOf(0, 1)
         NetworkManager.getAlgoliaApi().getStories(args[0])

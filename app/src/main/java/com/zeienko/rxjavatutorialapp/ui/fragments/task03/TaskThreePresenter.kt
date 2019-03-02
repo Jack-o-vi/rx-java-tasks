@@ -1,7 +1,6 @@
-package com.chisw.rxjavakasilovtasks.ui.presenter.task03
+package com.zeienko.rxjavatutorialapp.ui.fragments.task03
 
 import android.util.Log
-import com.zeienko.rxjavatutorialapp.ui.fragments.task03.TaskThreeContract
 import io.reactivex.Maybe
 import io.reactivex.MaybeObserver
 import io.reactivex.disposables.Disposable
@@ -34,6 +33,11 @@ class TaskThreePresenter : TaskThreeContract.TaskThreePresenter {
         }
     }
 
+    /*
+    Task 3
+Create a maybe source, that emits “Bang!” string or finishes with an
+IllegalArgumentException. Use Random().nextBoolean() to decide what to emit.
+     */
     private fun taskThree() {
         emmitBangOrException().subscribe(object : MaybeObserver<String> {
             override fun onSuccess(t: String) {

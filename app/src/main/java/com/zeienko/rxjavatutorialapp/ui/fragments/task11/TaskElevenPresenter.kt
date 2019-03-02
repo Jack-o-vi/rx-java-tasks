@@ -14,10 +14,10 @@ class TaskElevenPresenter : TaskElevenContract.TaskElevenPresenter {
 
     /*
     Task 11
-1. Load stories from the page 0
-2. Load 3rd story’s author info
-3. Combine to the new model with fields: author name, karma, story title
-4. Print the result
+        1. Load stories from the page 0
+        2. Load 3rd story’s author info
+        3. Combine to the new model with fields: author name, karma, story title
+        4. Print the result
      */
     private fun taskEleven() {
         NetworkManager.getAlgoliaApi().getStories(0)

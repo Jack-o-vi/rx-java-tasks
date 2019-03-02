@@ -15,13 +15,13 @@ class TaskEightPresenter : TaskEightContract.TaskEightPresenter {
 
     /*
     Task 8
-1. Create 3 executors
-2. Load stories from page 0 in the thread 1
-3. Log thread
-4. Load stories from page 1 in the thread 2
-5. Log thread
-6. Subscribe in the thread 3
-7. Print a list of titles from two pages and the name of the thread
+        1. Create 3 executors
+        2. Load stories from page 0 in the thread 1
+        3. Log thread
+        4. Load stories from page 1 in the thread 2
+        5. Log thread
+        6. Subscribe in the thread 3
+        7. Print a list of titles from two pages and the name of the thread
      */
     private fun taskEight() {
         val executor = Executors.newFixedThreadPool(2)

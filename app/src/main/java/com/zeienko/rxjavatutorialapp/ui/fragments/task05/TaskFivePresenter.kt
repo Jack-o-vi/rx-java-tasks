@@ -3,7 +3,6 @@ package com.zeienko.rxjavatutorialapp.ui.fragments.task05
 import com.zeienko.rxjavatutorialapp.log
 import com.zeienko.rxjavatutorialapp.logObserver
 import com.zeienko.rxjavatutorialapp.safeSubscribeOnAndObserveOn
-import com.zeienko.rxjavatutorialapp.ui.fragments.task05.TaskFiveContract
 import com.zeienko.rxjavatutorialapp.ui.fragments.task04.TaskFourPresenter
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
@@ -19,6 +18,14 @@ class TaskFivePresenter : TaskFiveContract.TaskFivePresenter {
         startTask()
     }
 
+
+    /*
+    Task 5
+1. Use maybe source from the previous task
+2. Transform it to single
+3. Print “Bang” from maybe in onSuccess() or "You're live" in other case (do not
+implement onError)
+     */
     private fun startTask() {
         taskFourPresenter
             .emmitBangOrNothing()
